@@ -1,0 +1,4 @@
+InvoiceNumber,Item,Amount,Tax,Total,Currency,Date
+508989,"Professional Services",238007,47601.4,285608,RON,2017-08-23
+656347,"IT Support",121900,24380,146280,EUR,2017-08-08
+374579,"Various paper supplies",127649,25529.8,153179,RON,2017-08-06
