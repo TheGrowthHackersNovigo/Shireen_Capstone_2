@@ -7,7 +7,7 @@
     <x:Property Name="io_MonthFolder" Type="InOutArgument(upr:ILocalResource)" />
     <x:Property Name="io_Months" Type="InOutArgument(s:String[])" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1164,3600</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1764,4332</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -47,6 +47,8 @@
       <x:String>System.Net.Mail</x:String>
       <x:String>GlobalVariablesNamespace</x:String>
       <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>UiPath.Platform</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -122,7 +124,7 @@
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Opening the Details page of the selected activity to retrieve the Vendor Tax ID (Output data: Tax ID).Going back to the Dashboard and accessing the Download Monthly Report section in the Reports menu. Filling in the Vendor Tax ID and downloading all the monthly reports for previous year(2023). " DisplayName="DownloadingMonthlyReports" sap:VirtualizedContainerService.HintSize="1174,3535" sap2010:WorkflowViewState.IdRef="Sequence_50">
+  <Sequence sap2010:Annotation.AnnotationText="Opening the Details page of the selected activity to retrieve the Vendor Tax ID (Output data: Tax ID).Going back to the Dashboard and accessing the Download Monthly Report section in the Reports menu. Filling in the Vendor Tax ID and downloading all the monthly reports for previous year(2023). " DisplayName="DownloadingMonthlyReports" sap:VirtualizedContainerService.HintSize="1774,4267" sap2010:WorkflowViewState.IdRef="Sequence_50">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -130,27 +132,27 @@
         <x:Boolean x:Key="IsPinned">False</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: ACME System 1 - Dashboard" sap:VirtualizedContainerService.HintSize="1112,3405" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" ScopeGuid="4d6b814b-b33c-4c56-ba3f-5312b7f84032" Version="V2" WindowResize="Maximize">
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: ACME System 1 - Dashboard" sap:VirtualizedContainerService.HintSize="1712,4148" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" ScopeGuid="4d6b814b-b33c-4c56-ba3f-5312b7f84032" Version="V2" WindowResize="Maximize">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1078,3165" sap2010:WorkflowViewState.IdRef="Sequence_49">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1678,3908" sap2010:WorkflowViewState.IdRef="Sequence_49">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <uix:NGoToUrl DisplayName="Go To URL : Action URL" sap:VirtualizedContainerService.HintSize="1016,114" sap2010:WorkflowViewState.IdRef="NGoToUrl_5" Url="[in_TransactionItem.SpecificContent(&quot;Actions Url&quot;).ToString]" Version="V3" />
-            <uix:NGetText DisplayName="Get Text 'TaxID'" sap:VirtualizedContainerService.HintSize="1016,189" sap2010:WorkflowViewState.IdRef="NGetText_3" ScopeIdentifier="4d6b814b-b33c-4c56-ba3f-5312b7f84032" TextString="[io_VendorDetails]" Version="V3">
+            <uix:NGoToUrl DisplayName="Go To URL : Action URL" sap:VirtualizedContainerService.HintSize="1616,114" sap2010:WorkflowViewState.IdRef="NGoToUrl_5" Url="[in_TransactionItem.SpecificContent(&quot;Actions Url&quot;).ToString]" Version="V3" />
+            <uix:NGetText DisplayName="Get Text 'TaxID'" sap:VirtualizedContainerService.HintSize="1616,189" sap2010:WorkflowViewState.IdRef="NGetText_3" ScopeIdentifier="4d6b814b-b33c-4c56-ba3f-5312b7f84032" TextString="[io_VendorDetails]" Version="V3">
               <uix:NGetText.Target>
                 <uix:TargetAnchorable BrowserURL="https://acme-test.uipath.com/work-items/101866547" DesignTimeRectangle="339, 427, 373, 80" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='P' idx='*' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='P' type='' class='' aaname='                              RO874231                              Copiers and More                              Strada Copiatoarelor 33                              Brasov, Romania                         ' /&gt;" Guid="1321fd60-0589-4bbf-8867-200ebf38d75b" ImageBase64="" InformativeScreenshot="5c1235078228db23b62dca32490b9073.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ACME System 1 - Work Items' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
               </uix:NGetText.Target>
             </uix:NGetText>
-            <ui:LogMessage DisplayName="Log Message : Vendor details" sap:VirtualizedContainerService.HintSize="1016,175" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[io_VendorDetails]" />
-            <Assign sap2010:Annotation.AnnotationText="From the vendor details extracting only vendor id&#xA;" DisplayName="Assign : Vendor Id" sap:VirtualizedContainerService.HintSize="1016,114" sap2010:WorkflowViewState.IdRef="Assign_6">
+            <ui:LogMessage DisplayName="Log Message : Vendor details" sap:VirtualizedContainerService.HintSize="1616,175" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[io_VendorDetails]" />
+            <Assign sap2010:Annotation.AnnotationText="From the vendor details extracting only vendor id&#xA;" DisplayName="Assign : Vendor Id" sap:VirtualizedContainerService.HintSize="1616,114" sap2010:WorkflowViewState.IdRef="Assign_6">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[io_VendorId]</OutArgument>
               </Assign.To>
@@ -165,16 +167,16 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </Assign>
-            <uix:NGoToUrl DisplayName="Go To URL : Download monthly report" sap:VirtualizedContainerService.HintSize="1016,114" sap2010:WorkflowViewState.IdRef="NGoToUrl_6" Url="[in_Config(&quot;MonthlyReport&quot;).ToString]" Version="V3" />
-            <uix:NCheckState DisplayName="Check App State 'Vendor TaxID:'" sap:VirtualizedContainerService.HintSize="1016,2369" sap2010:WorkflowViewState.IdRef="NCheckState_6" ScopeIdentifier="4d6b814b-b33c-4c56-ba3f-5312b7f84032" Timeout="[Convert.ToDouble(in_Config(&quot;TimeOut&quot;))]" Version="V3">
+            <uix:NGoToUrl DisplayName="Go To URL : Download monthly report" sap:VirtualizedContainerService.HintSize="1616,114" sap2010:WorkflowViewState.IdRef="NGoToUrl_6" Url="[in_Config(&quot;MonthlyReport&quot;).ToString]" Version="V3" />
+            <uix:NCheckState DisplayName="Check App State 'Vendor TaxID:'" sap:VirtualizedContainerService.HintSize="1616,3112" sap2010:WorkflowViewState.IdRef="NCheckState_6" ScopeIdentifier="4d6b814b-b33c-4c56-ba3f-5312b7f84032" Timeout="[Convert.ToDouble(in_Config(&quot;TimeOut&quot;))]" Version="V3">
               <uix:NCheckState.IfExists>
-                <Sequence DisplayName="Target appears : Downloading monthly report" sap:VirtualizedContainerService.HintSize="512,2127" sap2010:WorkflowViewState.IdRef="Sequence_47">
+                <Sequence DisplayName="Target appears : Downloading monthly report" sap:VirtualizedContainerService.HintSize="1112,2870" sap2010:WorkflowViewState.IdRef="Sequence_47">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <If sap2010:Annotation.AnnotationText="If the folder already exists then delete before creating the new" Condition="[System.IO.Directory.Exists(&quot;Data\\Input\\MonthlyReport-&quot;+ io_VendorId)]" DisplayName="If: Folder exists" sap:VirtualizedContainerService.HintSize="450,646" sap2010:WorkflowViewState.IdRef="If_2">
+                  <If sap2010:Annotation.AnnotationText="If the folder already exists then delete before creating the new" Condition="[System.IO.Directory.Exists(&quot;Data\\Input\\MonthlyReport-&quot;+ io_VendorId)]" DisplayName="If: Folder exists" sap:VirtualizedContainerService.HintSize="1050,646" sap2010:WorkflowViewState.IdRef="If_2">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -203,7 +205,7 @@
                       </Sequence>
                     </If.Else>
                   </If>
-                  <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder : For monthly reports" sap:VirtualizedContainerService.HintSize="450,112" sap2010:WorkflowViewState.IdRef="CreateDirectory_3" Output="[io_MonthFolder]" Path="[&quot;Data\\Input\\MonthlyReport-&quot;+ io_VendorId]">
+                  <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder : For monthly reports" sap:VirtualizedContainerService.HintSize="1050,112" sap2010:WorkflowViewState.IdRef="CreateDirectory_3" Output="[io_MonthFolder]" Path="[&quot;Data\\Input\\MonthlyReport-&quot;+ io_VendorId]">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -211,7 +213,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:CreateDirectory>
-                  <Assign sap2010:Annotation.AnnotationText="All the month names" DisplayName="Assign : All the month names" sap:VirtualizedContainerService.HintSize="450,145" sap2010:WorkflowViewState.IdRef="Assign_7">
+                  <Assign sap2010:Annotation.AnnotationText="All the month names" DisplayName="Assign : All the month names" sap:VirtualizedContainerService.HintSize="1050,145" sap2010:WorkflowViewState.IdRef="Assign_7">
                     <Assign.To>
                       <OutArgument x:TypeArguments="s:String[]">[io_Months]</OutArgument>
                     </Assign.To>
@@ -226,19 +228,19 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </Assign>
-                  <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="For each month in the array download the monthly reports for a particular tax id and store it in the folder" DisplayName="For Each month : In the array" sap:VirtualizedContainerService.HintSize="450,1134" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[io_Months]">
+                  <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="For each month in the array download the monthly reports for a particular tax id and store it in the folder" DisplayName="For Each month : In the array" sap:VirtualizedContainerService.HintSize="1050,1877" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[io_Months]">
                     <ui:ForEach.Body>
                       <ActivityAction x:TypeArguments="x:String">
                         <ActivityAction.Argument>
                           <DelegateInArgument x:TypeArguments="x:String" Name="month" />
                         </ActivityAction.Argument>
-                        <Sequence DisplayName="Body : Download the monthly reports" sap:VirtualizedContainerService.HintSize="416,953" sap2010:WorkflowViewState.IdRef="Sequence_46">
+                        <Sequence DisplayName="Body : Download the monthly reports" sap:VirtualizedContainerService.HintSize="1016,1707" sap2010:WorkflowViewState.IdRef="Sequence_46">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'TaxID'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="354,250" sap2010:WorkflowViewState.IdRef="NTypeInto_5" ScopeIdentifier="4d6b814b-b33c-4c56-ba3f-5312b7f84032" Text="[io_VendorId]" Version="V3">
+                          <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'TaxID'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="954,250" sap2010:WorkflowViewState.IdRef="NTypeInto_5" ScopeIdentifier="4d6b814b-b33c-4c56-ba3f-5312b7f84032" Text="[io_VendorId]" Version="V3">
                             <uix:NTypeInto.Target>
                               <uix:TargetAnchorable BrowserURL="https://acme-test.uipath.com/reports/download" CVScreenId="03c5f2fa-d5d9-4ee7-aebc-2f22120e37b7" CvElementArea="307, 384, 487, 37" CvType="InputBox" DesignTimeRectangle="308, 386, 485, 34" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;webctrl id='vendorTaxID' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='vendorTaxID' tag='INPUT' type='text' class='form-control' aaname='' /&gt;" Guid="d29abb80-50d8-48ec-aeb4-8482165d259d" InformativeScreenshot="da7fcecabca341ad397c5ba25c3fe6ad.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ACME System 1 - Download Monthly Report' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
                                 <uix:TargetAnchorable.Anchors>
@@ -255,7 +257,7 @@
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                           </uix:NTypeInto>
-                          <uix:NSelectItem DisplayName="Select Item '2023'" sap:VirtualizedContainerService.HintSize="354,189" sap2010:WorkflowViewState.IdRef="NSelectItem_5" Item="[in_Config(&quot;year&quot;).ToString]" ScopeIdentifier="4d6b814b-b33c-4c56-ba3f-5312b7f84032" Version="V3">
+                          <uix:NSelectItem DisplayName="Select Item '2023'" sap:VirtualizedContainerService.HintSize="954,189" sap2010:WorkflowViewState.IdRef="NSelectItem_5" Item="[in_Config(&quot;year&quot;).ToString]" ScopeIdentifier="4d6b814b-b33c-4c56-ba3f-5312b7f84032" Version="V3">
                             <uix:NSelectItem.Items>
                               <scg:List x:TypeArguments="x:String" Capacity="3">
                                 <x:String>---</x:String>
@@ -266,7 +268,7 @@
                             <uix:NSelectItem.Target>
                               <uix:TargetAnchorable BrowserURL="https://acme-test.uipath.com/reports/download" CVScreenId="5c6e5d61-20ce-4648-b983-d3e39d3ebc51" CvElementArea="306, 528, 223, 37" CvType="InputBox" DesignTimeRectangle="308, 529, 220, 34" DesignTimeScaleFactor="1" ElementType="Button" FullSelectorArgument="&lt;webctrl aaname='Year:' tag='LABEL' /&gt;&lt;nav up='1' /&gt;&lt;webctrl aria-role='button' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-role='button' tag='BUTTON' type='button' class='btn dropdown-toggle bs-placeholder btn-default' aaname='---' check:text='---' /&gt;" Guid="714f9341-8e9c-4780-a94f-1001f5f37bca" ImageBase64="" InformativeScreenshot="4639a48c9067b09a8abf68f78680c621.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ACME System 1 - Download Monthly Report' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
                                 <uix:TargetAnchorable.Anchors>
-                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
                                     <uix:Target CVScreenId="5c6e5d61-20ce-4648-b983-d3e39d3ebc51" CvTextArea="307, 507, 35, 13" CvTextArgument="Year:" CvType="Text" DesignTimeRectangle="308, 504, 34, 20" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Year:' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Year:' tag='LABEL' type='' class='' check:innerText='Year:' /&gt;" Guid="aa31d97f-c304-44bd-886e-2f421e4fd88f" SearchSteps="Selector" />
                                   </scg:List>
                                 </uix:TargetAnchorable.Anchors>
@@ -279,7 +281,7 @@
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                           </uix:NSelectItem>
-                          <uix:NSelectItem DisplayName="Select Item 'month'" sap:VirtualizedContainerService.HintSize="354,189" sap2010:WorkflowViewState.IdRef="NSelectItem_6" Item="[month]" ScopeIdentifier="4d6b814b-b33c-4c56-ba3f-5312b7f84032" Version="V3">
+                          <uix:NSelectItem DisplayName="Select Item 'month'" sap:VirtualizedContainerService.HintSize="954,189" sap2010:WorkflowViewState.IdRef="NSelectItem_6" Item="[month]" ScopeIdentifier="4d6b814b-b33c-4c56-ba3f-5312b7f84032" Version="V3">
                             <uix:NSelectItem.Items>
                               <scg:List x:TypeArguments="x:String" Capacity="13">
                                 <x:String>---</x:String>
@@ -307,12 +309,12 @@
                               </uix:TargetAnchorable>
                             </uix:NSelectItem.Target>
                           </uix:NSelectItem>
-                          <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Download Report'" sap:VirtualizedContainerService.HintSize="354,189" sap2010:WorkflowViewState.IdRef="NClick_7" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="4d6b814b-b33c-4c56-ba3f-5312b7f84032" Version="V3">
+                          <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Download Report'" sap:VirtualizedContainerService.HintSize="954,189" sap2010:WorkflowViewState.IdRef="NClick_7" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="4d6b814b-b33c-4c56-ba3f-5312b7f84032" Version="V3">
                             <uix:NClick.Target>
                               <uix:TargetAnchorable BrowserURL="https://acme-test.uipath.com/reports/download" CVScreenId="56d9b4d5-35a6-4d71-83e2-796cc834766d" CvElementArea="307, 576, 137, 39" CvTextArea="320, 588, 110, 16" CvTextArgument="Download Report" CvType="Button" DesignTimeRectangle="308, 578, 134, 34" DesignTimeScaleFactor="1" ElementType="Button" FullSelectorArgument="&lt;webctrl id='buttonDownload' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl id='buttonDownload' tag='BUTTON' type='button' class='btn btn-primary' aaname='Download Report' check:innerText='Download Report' /&gt;" Guid="aa2e48b6-4c2c-4454-ae9e-e55dcfe18f92" InformativeScreenshot="29eb58a78141a56b97e994247495a4be.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ACME System 1 - Download Monthly Report' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
                             </uix:NClick.Target>
                           </uix:NClick>
-                          <uix:NCheckState DisplayName="Check App State 'Save As'" sap:VirtualizedContainerService.HintSize="354,48" sap2010:WorkflowViewState.IdRef="NCheckState_5" ScopeIdentifier="4d6b814b-b33c-4c56-ba3f-5312b7f84032" Timeout="[Convert.ToDouble(in_Config(&quot;TimeOut&quot;))]" Version="V3">
+                          <uix:NCheckState DisplayName="Check App State 'Save As'" sap:VirtualizedContainerService.HintSize="954,802" sap2010:WorkflowViewState.IdRef="NCheckState_5" ScopeIdentifier="4d6b814b-b33c-4c56-ba3f-5312b7f84032" Timeout="[Convert.ToDouble(in_Config(&quot;TimeOut&quot;))]" Version="V3">
                             <uix:NCheckState.IfExists>
                               <Sequence DisplayName="Target appears : Saving page" sap:VirtualizedContainerService.HintSize="450,522" sap2010:WorkflowViewState.IdRef="Sequence_44">
                                 <sap:WorkflowViewStateService.ViewState>
@@ -320,7 +322,7 @@
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'File name'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="388,250" sap2010:WorkflowViewState.IdRef="NTypeInto_6" InteractionMode="HardwareEvents" ScopeIdentifier="4d6b814b-b33c-4c56-ba3f-5312b7f84032" Text="[&quot;C:\Users\Shireen.M\Documents\UiPath\Shireen_Capstone_2_A\Data\Input\&quot;+io_MonthFolder.FullName+&quot;\&quot;+month]" Version="V3">
+                                <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'File name'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="388,250" sap2010:WorkflowViewState.IdRef="NTypeInto_6" InteractionMode="HardwareEvents" ScopeIdentifier="4d6b814b-b33c-4c56-ba3f-5312b7f84032" Text="[in_Config(&quot;MonthlyReportDownloadPath&quot;).ToString+io_MonthFolder.FullName+&quot;\&quot;+month]" Version="V3">
                                   <uix:NTypeInto.Target>
                                     <uix:TargetAnchorable BrowserURL="https://acme-test.uipath.com/reports/download" CVScreenId="fd407985-e4b7-48a2-a9fd-2da8f53c5b33" CvElementArea="134, 496, 652, 23" CvType="InputBox" DesignTimeRectangle="136, 499, 631, 17" DesignTimeScaleFactor="1" ElementType="InputBox" FullSelectorArgument="&lt;wnd aaname='Explorer Pane' cls='DirectUIHWND' /&gt;&lt;ctrl name='Explorer Pane' role='pane' /&gt;&lt;ctrl name='Folder Layout Pane' role='pane' /&gt;&lt;ctrl name='Details Pane' role='pane' /&gt;&lt;ctrl name='File name:' role='text' /&gt;&lt;nav up='4' /&gt;&lt;wnd aaname='File name:' cls='ComboBox' /&gt;&lt;wnd ctrlid='1001' /&gt;" FuzzySelectorArgument="&lt;wnd aaname='Explorer Pane' cls='DirectUIHWND' /&gt;&lt;wnd aaname='File name:' cls='ComboBox' /&gt;&lt;wnd ctrlid='1001' /&gt;" Guid="cf3b781b-1385-4fb3-b907-3abcc9eeb852" InformativeScreenshot="3fe6b3452e0b55ac2f6c126f515d668a.png" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='#32770' title='Save As' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
                                       <uix:TargetAnchorable.Anchors>
@@ -357,7 +359,7 @@
                             </uix:NCheckState.Target>
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>

@@ -4,7 +4,7 @@
     <x:Property Name="in_VendorId" Type="InArgument(x:String)" />
     <x:Property Name="io_ConfirmationId" Type="InOutArgument(x:String)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1171,2154</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1171,2296</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -43,6 +43,7 @@
       <x:String>System.Net.Mail</x:String>
       <x:String>GlobalVariablesNamespace</x:String>
       <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Linq.Expressions</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -118,7 +119,7 @@
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Uploading the resulting yearly report file in the “Upload Yearly Report” section in the Reports menu. Filling in the Vendor Tax ID, setting the year, and selecting the file from hard drive. This will return a unique upload ID.  " DisplayName="Uploading yearly excel" sap:VirtualizedContainerService.HintSize="1158,2089" sap2010:WorkflowViewState.IdRef="Sequence_46">
+  <Sequence sap2010:Annotation.AnnotationText="Uploading the resulting yearly report file in the “Upload Yearly Report” section in the Reports menu. Filling in the Vendor Tax ID, setting the year, and selecting the file from hard drive. This will return a unique upload ID.  " DisplayName="Uploading yearly excel" sap:VirtualizedContainerService.HintSize="1158,2231" sap2010:WorkflowViewState.IdRef="Sequence_46">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -126,13 +127,13 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: ACME System 1 - Dashboard-For uplading yearly report" sap:VirtualizedContainerService.HintSize="1096,1959" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InteractionMode="DebuggerApi" ScopeGuid="b8aae1be-685d-4818-9e54-1e177e0b9aeb" Version="V2" WindowResize="Maximize">
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: ACME System 1 - Dashboard-For uplading yearly report" sap:VirtualizedContainerService.HintSize="1096,2101" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InteractionMode="DebuggerApi" ScopeGuid="b8aae1be-685d-4818-9e54-1e177e0b9aeb" Version="V2" WindowResize="Maximize">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do :For uplading yearly report" sap:VirtualizedContainerService.HintSize="1062,1719" sap2010:WorkflowViewState.IdRef="Sequence_45">
+          <Sequence DisplayName="Do :For uplading yearly report" sap:VirtualizedContainerService.HintSize="1062,1861" sap2010:WorkflowViewState.IdRef="Sequence_45">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -198,7 +199,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </uix:NClick>
-            <uix:NTypeInto ActivateBefore="True" sap2010:Annotation.AnnotationText="Where the yearly report stored" ClickBeforeMode="Single" DisplayName="Type Into 'File &amp;name'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="1000,99" sap2010:WorkflowViewState.IdRef="NTypeInto_8" InteractionMode="HardwareEvents" ScopeIdentifier="b8aae1be-685d-4818-9e54-1e177e0b9aeb" Text="[&quot;C:\Users\Shireen.M\Documents\UiPath\Shireen_Capstone_2_A\Data\Output\Yearly-Report-2023-&quot;+in_VendorId+&quot;.xlsx&quot;]" Version="V3">
+            <uix:NTypeInto ActivateBefore="True" sap2010:Annotation.AnnotationText="Where the yearly report stored" ClickBeforeMode="Single" DisplayName="Type Into 'File &amp;name'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="1000,281" sap2010:WorkflowViewState.IdRef="NTypeInto_8" InteractionMode="HardwareEvents" ScopeIdentifier="b8aae1be-685d-4818-9e54-1e177e0b9aeb" Text="[in_Config(&quot;YearlyReportPath&quot;).ToString+in_VendorId+&quot;.xlsx&quot;]" Version="V3">
               <uix:NTypeInto.Target>
                 <uix:TargetAnchorable BrowserURL="https://acme-test.uipath.com/reports/upload" CVScreenId="2220c3e3-b8f2-4f6d-b2f7-4a1dbbe7a0f4" CvElementArea="280, 607, 344, 38" CvType="InputBox" DesignTimeRectangle="287, 615, 307, 25" DesignTimeScaleFactor="1.5" ElementType="InputBox" FullSelectorArgument="&lt;wnd ctrlid='1148' /&gt;&lt;wnd ctrlid='1148' /&gt;&lt;wnd aaname='File name:' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlid='1148' /&gt;&lt;wnd ctrlid='1148' /&gt;&lt;wnd aaname='File name:' /&gt;" Guid="ba1925e3-ecb4-439f-933c-967d760ab23c" InformativeScreenshot="31daf79c79cf8b0d547dcd0ab43a79db.png" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='#32770' title='Open' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
                   <uix:TargetAnchorable.Anchors>
@@ -211,7 +212,7 @@
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
@@ -238,7 +239,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </uix:NClick>
-            <uix:NCheckState sap2010:Annotation.AnnotationText="Capturing the confirmation id after submitting the yearly report successfully" DisplayName="Check App State 'acme-test.uipath.com sa…-Confirmation id'" sap:VirtualizedContainerService.HintSize="1000,1188" sap2010:WorkflowViewState.IdRef="NCheckState_7" ScopeIdentifier="b8aae1be-685d-4818-9e54-1e177e0b9aeb" Timeout="[Convert.ToDouble(in_Config(&quot;TimeOut&quot;))]" Version="V3">
+            <uix:NCheckState sap2010:Annotation.AnnotationText="Capturing the confirmation id after submitting the yearly report successfully" DisplayName="Check App State 'acme-test.uipath.com sa…-Confirmation id'" sap:VirtualizedContainerService.HintSize="1000,1148" sap2010:WorkflowViewState.IdRef="NCheckState_7" ScopeIdentifier="b8aae1be-685d-4818-9e54-1e177e0b9aeb" Timeout="[Convert.ToDouble(in_Config(&quot;TimeOut&quot;))]" Version="V3">
               <uix:NCheckState.IfExists>
                 <Sequence DisplayName="Target appears : Popup" sap:VirtualizedContainerService.HintSize="496,875" sap2010:WorkflowViewState.IdRef="Sequence_43">
                   <Sequence.Variables>
