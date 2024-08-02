@@ -1,12 +1,13 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="Combiningallthefileintosingleexcel" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:upr="clr-namespace:UiPath.Platform.ResourceHandling;assembly=UiPath.Platform" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="AllFiles" Type="InOutArgument(s:String[])" />
-    <x:Property Name="MonthFolder" Type="InArgument(upr:ILocalResource)" />
-    <x:Property Name="dt_ResultFile" Type="InOutArgument(sd:DataTable)" />
-    <x:Property Name="VendorId" Type="InArgument(x:String)" />
-    <x:Property Name="dt_InputFile" Type="InOutArgument(sd:DataTable)" />
+    <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="io_AllFiles" Type="InOutArgument(s:String[])" />
+    <x:Property Name="in_MonthFolder" Type="InArgument(upr:ILocalResource)" />
+    <x:Property Name="io_dt_ResultFile" Type="InOutArgument(sd:DataTable)" />
+    <x:Property Name="io_dt_InputFile" Type="InOutArgument(sd:DataTable)" />
+    <x:Property Name="in_VendorId" Type="InArgument(x:String)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1167,1448</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>854,1664</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -126,19 +127,20 @@
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Combining all the file into single excel" sap:VirtualizedContainerService.HintSize="688,1383" sap2010:WorkflowViewState.IdRef="Sequence_27">
+  <Sequence sap2010:Annotation.AnnotationText="Getting all the monthly reports from the folder then grouping the downloaded monthly reports into a single Excel file by reading each monthly report csv and saving it with the naming convention  “Yearly-Report-[Year]-[Tax ID].xlsx”. " DisplayName="CombiningMonthlyReports : Get all the monthly reports" sap:VirtualizedContainerService.HintSize="688,1599.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_27">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Assign sap:VirtualizedContainerService.HintSize="626,114" sap2010:WorkflowViewState.IdRef="Assign_8">
+    <Assign DisplayName="Assign : Getting all the monthly reports" sap:VirtualizedContainerService.HintSize="626,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_8">
       <Assign.To>
-        <OutArgument x:TypeArguments="s:String[]">[AllFiles]</OutArgument>
+        <OutArgument x:TypeArguments="s:String[]">[io_AllFiles]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles("Data\Input\"+MonthFolder.FullName)]</InArgument>
+        <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles("Data\Input\" + in_MonthFolder.FullName)]</InArgument>
       </Assign.Value>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -147,33 +149,33 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </Assign>
-    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each file" sap:VirtualizedContainerService.HintSize="626,1042" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[AllFiles]">
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each file : Monthly report" sap:VirtualizedContainerService.HintSize="626,1210" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[io_AllFiles]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:String">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:String" Name="file" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="592,896" sap2010:WorkflowViewState.IdRef="Sequence_26">
+          <Sequence DisplayName="Body : Reading the monthly report" sap:VirtualizedContainerService.HintSize="592,1062" sap2010:WorkflowViewState.IdRef="Sequence_26">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:ReadCsvFile PathResource="{x:Null}" DataTable="[dt_InputFile]" Delimitator="Comma" DelimitatorForViewModel="Comma" DisplayName="Read CSV" FilePath="[file]" sap:VirtualizedContainerService.HintSize="530,186" sap2010:WorkflowViewState.IdRef="ReadCsvFile_2" />
-            <If Condition="[dt_ResultFile is Nothing]" sap:VirtualizedContainerService.HintSize="530,466" sap2010:WorkflowViewState.IdRef="If_2">
+            <ui:ReadCsvFile PathResource="{x:Null}" DataTable="[io_dt_InputFile]" Delimitator="Comma" DelimitatorForViewModel="Comma" DisplayName="Read CSV : Monthly report" FilePath="[file]" sap:VirtualizedContainerService.HintSize="530,191.33333333333334" sap2010:WorkflowViewState.IdRef="ReadCsvFile_2" />
+            <If Condition="[io_dt_ResultFile is Nothing]" DisplayName="If : Appending all the files in a single excel" sap:VirtualizedContainerService.HintSize="530,623.3333333333334" sap2010:WorkflowViewState.IdRef="If_2">
               <If.Then>
-                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="496,193" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                <Sequence DisplayName="Then : Appending" sap:VirtualizedContainerService.HintSize="496,196" sap2010:WorkflowViewState.IdRef="Sequence_24">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Assign sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_9">
+                  <Assign DisplayName="Assign : Single excel report" sap:VirtualizedContainerService.HintSize="434,108" sap2010:WorkflowViewState.IdRef="Assign_9">
                     <Assign.To>
-                      <OutArgument x:TypeArguments="sd:DataTable">[dt_ResultFile]</OutArgument>
+                      <OutArgument x:TypeArguments="sd:DataTable">[io_dt_ResultFile]</OutArgument>
                     </Assign.To>
                     <Assign.Value>
-                      <InArgument x:TypeArguments="sd:DataTable">[dt_InputFile.Clone]</InArgument>
+                      <InArgument x:TypeArguments="sd:DataTable">[io_dt_InputFile.Clone]</InArgument>
                     </Assign.Value>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -185,20 +187,21 @@
                 </Sequence>
               </If.Then>
               <If.Else>
-                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,103" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                <Sequence DisplayName="Else : Data is already present" sap:VirtualizedContainerService.HintSize="416,255.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_25">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message : Data is present" sap:VirtualizedContainerService.HintSize="354,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Result file has data&quot;]" />
                 </Sequence>
               </If.Else>
             </If>
-            <ui:MergeDataTable Destination="[dt_ResultFile]" DisplayName="Merge Data Table" sap:VirtualizedContainerService.HintSize="530,156" sap2010:WorkflowViewState.IdRef="MergeDataTable_2" MissingSchemaAction="Add" Source="[dt_InputFile]" />
+            <ui:MergeDataTable Destination="[io_dt_ResultFile]" DisplayName="Merge Data Table: Monthly report with the existing ones" sap:VirtualizedContainerService.HintSize="530,159.33333333333334" sap2010:WorkflowViewState.IdRef="MergeDataTable_2" MissingSchemaAction="Add" Source="[io_dt_InputFile]" />
           </Sequence>
         </ActivityAction>
       </ui:ForEach.Body>
     </ui:ForEach>
-    <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[dt_ResultFile]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="626,139" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="Sheet1" WorkbookPath="[&quot;Data\Output\Yearly-Report-2023-&quot; + VendorId + &quot;.xlsx&quot;]" />
+    <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[io_dt_ResultFile]" DisplayName="Write Range Workbook : All merged reports" sap:VirtualizedContainerService.HintSize="626,138.66666666666666" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="Sheet1" WorkbookPath="[&quot;Data\Output\Yearly-Report-2023-&quot; + in_VendorId + &quot;.xlsx&quot;]" />
   </Sequence>
 </Activity>
